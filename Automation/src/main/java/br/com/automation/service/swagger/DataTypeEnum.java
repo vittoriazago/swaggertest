@@ -50,6 +50,14 @@ public enum DataTypeEnum {
 			return null;
 		}
 	},
+	FILE("file") {
+
+		@Override
+		public String getValue() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	},
 	OBJECT("object") {
 
 		@Override

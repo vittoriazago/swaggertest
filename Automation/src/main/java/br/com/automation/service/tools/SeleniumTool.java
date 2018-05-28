@@ -27,12 +27,12 @@ public class SeleniumTool implements IAutomationTool<WebDriver, WebElement> {
 
 	@Override
 	public WebDriver openPage(String url) {
-		 System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 
 		page = new ChromeDriver();
 		// System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
 
-		//page = new FirefoxDriver();
+		// page = new FirefoxDriver();
 		page.get(url);
 		page.manage().window().maximize();
 		return page;
@@ -50,9 +50,9 @@ public class SeleniumTool implements IAutomationTool<WebDriver, WebElement> {
 
 	@Override
 	public WebDriver executeJavaScript(String javaScript) {
-		if(javaScript.isEmpty())
+		if (javaScript.isEmpty())
 			return page;
-		((JavascriptExecutor)page).executeScript(javaScript);
+		((JavascriptExecutor) page).executeScript(javaScript);
 		return page;
 	}
 
@@ -61,13 +61,13 @@ public class SeleniumTool implements IAutomationTool<WebDriver, WebElement> {
 		element.click();
 		return page;
 	}
-	
+
 	@Override
 	public WebDriver setValue(WebElement element, String value) {
 		element.sendKeys(value);
 		return page;
 	}
-	
+
 	@Override
 	public WebElement getInternalElement(WebElement element, String xpath) {
 		return element.findElement(By.xpath(xpath));
@@ -77,17 +77,17 @@ public class SeleniumTool implements IAutomationTool<WebDriver, WebElement> {
 	public String getAttributeValue(WebElement element, String attribute) {
 		return element.getAttribute(attribute);
 	}
-	
+
 	@Override
 	public String getElementTagName(WebElement element) {
 		return element.getTagName();
 	}
-	
+
 	@Override
 	public String getElementContent(WebElement element) {
 		return element.getText();
 	}
-	
+
 	/*
 	 * Waits until element appears on page
 	 */
@@ -112,7 +112,7 @@ public class SeleniumTool implements IAutomationTool<WebDriver, WebElement> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//wait(By.xpath(xpath), seconds)
+		// wait(By.xpath(xpath), seconds)
 	}
 
 	@Override
@@ -122,8 +122,8 @@ public class SeleniumTool implements IAutomationTool<WebDriver, WebElement> {
 
 	@Override
 	public void close() {
+		if (page != null)
+			page.close();
 
-		page.close();
-	
 	}
 }
