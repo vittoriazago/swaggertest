@@ -28,11 +28,11 @@ public class SeleniumTool implements IAutomationTool<WebDriver, WebElement> {
 	@Override
 	public WebDriver openPage(String url) {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-
 		page = new ChromeDriver();
+		
 		// System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-
 		// page = new FirefoxDriver();
+		
 		page.get(url);
 		page.manage().window().maximize();
 		return page;
