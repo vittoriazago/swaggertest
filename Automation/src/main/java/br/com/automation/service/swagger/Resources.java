@@ -23,7 +23,7 @@ public class Resources {
 
 	public static final String defaultValueForString = "c9d459ee-daaf-43da-b74a-24113cfb62c6";
 	public static final String defaultValueForBoolean = "true";
-	public static final String defaultValueForFile = "C:\\testeUpload.txt";
+	public static final String defaultValueForFile = System.getProperty("user.dir") + "\\testeUpload.txt";
 	public static final String defaultValueForInteger = "1";
 	public static final String defaultValueForDouble = "1";
 	public static final String defaultValueForLong = "1";
